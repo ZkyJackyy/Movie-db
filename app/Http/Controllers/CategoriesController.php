@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\categories;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -12,7 +13,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        // $movies = Movie::paginate(10);
+        // return view('pages.home', compact('movies'));
     }
 
     /**
