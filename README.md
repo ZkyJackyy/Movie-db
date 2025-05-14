@@ -1,5 +1,5 @@
-Nama    : Muhammad Zacky
-NIM     : 2301092028
+Nama    : Muhammad Zacky <br>
+NIM     : 2301092028 <br>
 Kelas   : MI2B
 
 
