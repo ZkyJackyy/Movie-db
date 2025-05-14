@@ -21,7 +21,7 @@
 <div class="row row-cols-1 row-cols-md-2 gx-4 gy-4">
     @foreach ($movies as $movie)
     <div class="col">
-        <div class="card mb-3" style="max-width: 500px;">
+        <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="{{ $movie['cover_image'] }}" class="img-fluid " style="border-top-left-radius: 10px; border-bottom-left-radius: 10px" alt="..."
@@ -30,9 +30,10 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">{{ $movie['title'] }}</h5>
-                        <p class="card-text">{{ $movie['synopsis'] }}
+                        <p class="card-text">{{$movie['synopsis'] }} {{-- Str::words($movie->$synopsis,20)  --}}
                         </p>
-                        <a href="" class="btn btn-success">Lihat Selanjutnya</a>
+                        <p class="card-text">Year : {{$movie['year'] }}</p>
+                        <a href="/movie/{{ $movie->id }}/{{ $movie->slug }}" class="btn btn-success">Lihat Selanjutnya</a>
                     </div>
                 </div>
             </div>
@@ -40,6 +41,7 @@
     </div>
     @endforeach
 </div>
+
 <div class="mt-4">
     {{ $movies->links('pagination::bootstrap-5') }}
   </div>

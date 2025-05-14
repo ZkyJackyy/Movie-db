@@ -20,8 +20,8 @@
 <body class="d-flex flex-column h-100">
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Akademik</a>
+            <div class="container">
+                <a class="navbar-brand" href="#"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
