@@ -6,7 +6,7 @@
 <style>
     .card-text {
       display: -webkit-box;
-      -webkit-line-clamp: 3; /* Jumlah baris */
+      -webkit-line-clamp: 2; /* Jumlah baris */
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
