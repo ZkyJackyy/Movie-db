@@ -28,13 +28,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link @yield('navMovie')" href="#">MOVIE-DB</a>
+                            <a class="nav-link @yield('navMovie')" href="/">MOVIE-DB</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link @yield('navhome')" href="#">home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @yield('navwatch')" href="#">Watchlist</a>
+                            <a class="nav-link @yield('navInmov')" href="/movie/create/">Input Movie</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
