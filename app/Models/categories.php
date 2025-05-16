@@ -13,6 +13,6 @@ class categories extends Model
     use HasFactory;
 
     public function movies():HasMany{
-        return $this->hasMany(Movie::class);
+        return $this->hasMany(Movie::class, 'category_id');
     }
 }

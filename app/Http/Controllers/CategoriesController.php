@@ -36,9 +36,13 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(categories $categories)
+    public function show($id)
     {
-        //
+        $category = categories::findOrFail($id);
+
+        $movies= Movie::where('category_id', $id)->paginate(6);
+
+        return view('pages.show', compact('category','movies'));
     }
 
     /**

@@ -14,6 +14,6 @@ class Movie extends Model
 
     public function category():BelongsTo
     {
-        return $this->belongsTo(categories::class);
+        return $this->belongsTo(categories::class, 'category_id');
     }
 }

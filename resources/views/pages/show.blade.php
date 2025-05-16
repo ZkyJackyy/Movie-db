@@ -1,6 +1,5 @@
 @extends('layout.main')
-@section('title','list movie')
-@section('navMovie','active')
+@section('title', 'Movies in ' . $category->category_name)
 @section('container')
 
 <style>
@@ -16,7 +15,7 @@
     }
     </style>
 
-<h1 style="font-size : 45px">Popular Movies</h1>
+<h1>Movies in "{{ $category->category_name }}"</h1>
 
 <div class="row row-cols-1 row-cols-md-2 gx-4 gy-4">
     @foreach ($movies as $movie)
@@ -55,5 +54,6 @@
   </div>
 
 
+<a href="/" class="btn btn-secondary mt-4">Back to Home</a>
 
 @endsection
