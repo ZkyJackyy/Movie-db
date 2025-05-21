@@ -13,7 +13,7 @@
     </div>
     <div class="mb-3">
         <label for="cover_image" class="form-label">Cover Image</label>
-        <input type="file" class="form-control" id="cover_image" name="cover_image" required>
+        <input type="file" class="form-control" id="cover_image" name="cover_image">
     </div>
     <div class="mb-3">
         <label for="synopsis" class="form-label">Synopsis</label>
@@ -26,6 +26,7 @@
     <div class="mb-3">
         <label for="category" class="form-label">Category</label>
         <select class="form-select" id="category" name="category_id">
+            <option value="">--pilih category--</option>
             <option value="1">Action</option>
             <option value="2">Comedy</option>
             <option value="3">Drama</option>
@@ -40,7 +41,7 @@
     </div>
     <div class="mb-3">
         <label for="actor" class="form-label">Actors</label>
-        <input type="text" class="form-control" id="actor" name="actor" required>
+        <input type="text" class="form-control" id="actor" name="actor">
     </div>
     <button type="submit" class="btn btn-success mb-3">Submit</button>
 </form>

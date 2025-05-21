@@ -31,10 +31,10 @@
                             <a class="nav-link @yield('navMovie')" href="/">MOVIE-DB</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @yield('navhome')" href="#">home</a>
+                            <a class="nav-link @yield('navhome')" href="/">home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @yield('navInmov')" href="/movie/create/">Input Movie</a>
+                            <a class="nav-link @yield('navInmov')" href="/movie/create/">Add Movie</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">

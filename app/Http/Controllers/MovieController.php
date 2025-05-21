@@ -29,11 +29,11 @@ class MovieController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'synopsis' => 'required|string',
             'year' => 'required|integer|min:1800|max:' . date('Y'),
             'category_id' => 'required|exists:categories,id',
-            'actor' => 'required|string|max:255',
+            'actor' => 'nullable|string|max:255',
         ]);
     
         // Simpan file gambar

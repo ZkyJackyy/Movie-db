@@ -25,8 +25,8 @@
             <div class="row g-0">
                 <div class="col-md-4">
                     @php
-    $cover = $movie->cover_image;
-@endphp
+                        $cover = $movie->cover_image;
+                    @endphp
                     @if (Str::startsWith($cover, ['http://', 'https://']))
                         <img src="{{ $cover }}" alt="{{ $movie->title }}" class="img-fluid" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px">
                     @else
