@@ -33,14 +33,32 @@
                         <li class="nav-item">
                             <a class="nav-link @yield('navhome')" href="/">home</a>
                         </li>
+                        @auth
                         <li class="nav-item">
                             <a class="nav-link @yield('navInmov')" href="/movie/create/">Add Movie</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="">{{ Auth::user()->name }}</a>
+                        </li>
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link @yield('navLogin')" href="/login">Login</a>
+                        </li>
+                        @endauth
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search">
                         <button class="btn btn-outline-light" type="submit">Search</button>
                     </form>
+                    @auth
+                        <div class="ms-3">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="btn btn-outline-light">Logout</button>
+                            </form>
+                        </div>
+
+                    @endauth
                 </div>
             </div>
         </nav>

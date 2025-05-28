@@ -11,7 +11,7 @@ class MovieController extends Controller
 {
     public function index()
     {
-        $movies = Movie::paginate(6);
+        $movies = Movie::latest()->paginate(6);
         return view('pages.home', compact('movies'));
     }
 
