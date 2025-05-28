@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title','list movie')
-@section('navMovie','active')
+@section('navhome','active')
 @section('container')
 
 <style>

@@ -5,6 +5,8 @@
 
 <h1>Form Movie</h1>
 
+<a href="/list" class="btn btn-primary mb-3">Data Movie</a>
+
 <form action="{{ route('movies.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">

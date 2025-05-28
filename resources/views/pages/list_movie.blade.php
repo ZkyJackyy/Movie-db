@@ -1,0 +1,43 @@
+@extends('layout.main')
+@section('title','list movie')
+@section('container')
+
+<h1>list movie</h1>
+
+<table class="table table-bordered">
+<tr>
+    <th>no</th>
+    <th>title</th>
+    <th>synopsis</th>
+    <th>year</th>
+    <th>category</th>
+    <th>actor</th>
+    <th>aksi</th>
+</tr>
+@foreach ($movies as $movie)
+<tr>
+    <td>{{ $movie->id }}</td>
+    <td>{{ $movie->title }}</td>
+    <td>{{ $movie->synopsis }}</td>
+    <td>{{ $movie->year }}</td>
+    <td>{{ $movie->category->category_name }}</td>
+    <td>{{ $movie->actor }}</td>
+    <td>
+        <a href="/movie/{{ $movie->id }}/{{ $movie->slug }}" class="btn btn-primary">Detail</a>
+        <a href="/movies/{{ $movie->id }}/edit" class="btn btn-warning">Edit</a>
+        <form action="/movies/{{ $movie->id }}" method="POST" class="d-inline">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Delete</button>
+          </form>
+    </td>
+</tr>
+    
+@endforeach
+
+</table>
+
+<div class="mt-4">
+    {{ $movies->links('pagination::bootstrap-5') }}
+  </div>
+@endsection

@@ -24,3 +24,7 @@ Route::post('/logout', function () {
 
     return redirect('/login');
 })->name('logout');
+Route::get('/list', [MovieController::class, 'list']);
+Route::get('/movies/{id}/edit', [MovieController::class, 'edit'])->name('movie.edit');
+Route::put('/movies/{id}', [MovieController::class, 'update'])->name('movie.update');
+Route::delete('/movies/{id}', [MovieController::class, 'destroy'])->name('movie.destroy');
