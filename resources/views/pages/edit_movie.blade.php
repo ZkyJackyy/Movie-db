@@ -13,11 +13,11 @@
     </div>
     <div class="mb-3">
         <label for="cover_image" class="form-label">Cover Image</label>
-        <input type="file" class="form-control" id="cover_image" name="cover_image" value="">
+        <input type="file" class="form-control" id="cover_image" name="cover_image" value="{{ old('cover_image', $movies->cover_image) }}">
     </div>
     <div class="mb-3">
         <label for="synopsis" class="form-label">Synopsis</label>
-        <textarea class="form-control" id="synopsis" name="synopsis" rows="3" required>{{ old('synopsis', $movies->synopsis) }}</textarea>
+        <textarea class="form-control" id="synopsis" name="synopsis" rows="5" required>{{ old('synopsis', $movies->synopsis) }}</textarea>
     </div>
     <div class="mb-3">
         <label for="year" class="form-label">Year</label>

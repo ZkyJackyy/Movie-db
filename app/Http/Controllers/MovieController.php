@@ -67,13 +67,30 @@ class MovieController extends Controller
 
     public function update(Request $request, $id)
     {
-        $movies = Movie::findorfail($id);
+        
+        $movies = Movie::findOrFail($id);
+
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'synopsis' => 'required|string',
+            'year' => 'required|integer|min:1800|max:' . date('Y'),
+            'category_id' => 'required|exists:categories,id',
+            'actor' => 'nullable|string|max:255',
+        ]);
+
+        if ($request->file('cover_image')) {
+            $imagePath = $request->file('cover_image')->store('cover_images', 'public');
+            $movies->cover_image = $imagePath;
+        }
+
         $movies->update([
-            'title' => $request->title,
-            'synopsis' => $request->synopsis,
-            'year' => $request->year,
-            'category_id' => $request->category_id,
-            'actor' => $request->actor,
+            'title' => $validated['title'],
+            'slug' => Str::slug($validated['title']),
+            'synopsis' => $validated['synopsis'],
+            'year' => $validated['year'],
+            'category_id' => $validated['category_id'],
+            'actor' => $validated['actor'],
         ]);
         return redirect('/list')->with('success', 'berhasil mengupdate data movie');
     }

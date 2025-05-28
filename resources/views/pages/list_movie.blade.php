@@ -8,7 +8,7 @@
 <tr>
     <th>no</th>
     <th>title</th>
-    <th>synopsis</th>
+    <th>cover image</th>
     <th>year</th>
     <th>category</th>
     <th>actor</th>
@@ -16,9 +16,18 @@
 </tr>
 @foreach ($movies as $movie)
 <tr>
-    <td>{{ $movie->id }}</td>
+    <td scope ="row">{{ $loop->iteration }}</td>
     <td>{{ $movie->title }}</td>
-    <td>{{ $movie->synopsis }}</td>
+    <td>
+        @php
+            $cover = $movie->cover_image;
+        @endphp
+        @if (Str::startsWith($cover, ['http://', 'https://']))
+        <img src="{{ $cover }}" alt="{{ $movie->title }}" class="img-fluid" style="max-height: 100px">
+        @else
+        <img src="{{ asset('storage/' . $cover) }}" alt="Cover {{ $movie->title }}" style="max-height: 100px">
+                    @endif
+    </td>
     <td>{{ $movie->year }}</td>
     <td>{{ $movie->category->category_name }}</td>
     <td>{{ $movie->actor }}</td>
