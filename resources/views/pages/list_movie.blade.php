@@ -33,12 +33,18 @@
     <td>{{ $movie->actor }}</td>
     <td>
         <a href="/movie/{{ $movie->id }}/{{ $movie->slug }}" class="btn btn-primary">Detail</a>
+        @if (auth()->user()->role === 'admin')
+            
         <a href="/movies/{{ $movie->id }}/edit" class="btn btn-warning">Edit</a>
+        @endif
+        @can('delete')
+            
         <form action="/movies/{{ $movie->id }}" method="POST" class="d-inline">
             @csrf
             @method('delete')
             <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Delete</button>
           </form>
+        @endcan
     </td>
 </tr>
     

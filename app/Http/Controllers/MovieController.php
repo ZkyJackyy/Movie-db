@@ -6,6 +6,7 @@ use App\Models\Movie;
 use App\Models\categories;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class MovieController extends Controller
 {
@@ -97,8 +98,12 @@ class MovieController extends Controller
 
     public function destroy($id)
     {
-        $data = Movie::findorfail($id);
-        $data->delete();
-        return redirect()->back()->with('success', 'data berhasil di hapus');
+        if(Gate::allows('delete')){
+
+            $data = Movie::findorfail($id);
+            $data->delete();
+            return redirect()->back()->with('success', 'data berhasil di hapus');
+        }
+
     }
 }

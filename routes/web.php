@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Middleware\RoleAdmin;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +26,6 @@ Route::post('/logout', function () {
     return redirect('/login');
 })->name('logout');
 Route::get('/list', [MovieController::class, 'list']);
-Route::get('/movies/{id}/edit', [MovieController::class, 'edit'])->name('movie.edit');
-Route::put('/movies/{id}', [MovieController::class, 'update'])->name('movie.update');
-Route::delete('/movies/{id}', [MovieController::class, 'destroy'])->name('movie.destroy');
+Route::get('/movies/{id}/edit', [MovieController::class, 'edit'])->name('movie.edit')->middleware('auth',RoleAdmin::class);
+Route::put('/movies/{id}', [MovieController::class, 'update'])->name('movie.update')->middleware('auth',RoleAdmin::class);
+Route::delete('/movies/{id}', [MovieController::class, 'destroy'])->name('movie.destroy')->middleware('auth',RoleAdmin::class);
