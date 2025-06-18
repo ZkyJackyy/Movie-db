@@ -12,7 +12,11 @@ class MovieController extends Controller
 {
     public function index()
     {
-        $movies = Movie::latest()->paginate(6);
+        $query = Movie::latest();
+        if (request('search')) {
+            $query->where('title', 'like', '%' . request('search') . '%');
+        }
+        $movies = $query->paginate(10);
         return view('pages.home', compact('movies'));
     }
 
